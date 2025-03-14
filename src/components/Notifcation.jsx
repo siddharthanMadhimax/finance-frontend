@@ -6,7 +6,7 @@ import { _exports } from "../constants";
 import { color } from "framer-motion";
 
 
-const Notification = ({notifyCount}) => {
+const Notification = ({notifyCount,setPopover}) => {
   const [countOfNotification, setCountOfNotification] = useState(4);
 
   const [notification,setNotifications]=useState(_exports.notificationAlert)
@@ -30,6 +30,7 @@ const Notification = ({notifyCount}) => {
     setNotifications("")
     setCountOfNotification('')
     notifyCount("")
+    setPopover(false)
   }
 
   return (
@@ -44,8 +45,8 @@ const Notification = ({notifyCount}) => {
           </div>
 
           {/* Clear All Button */}
-          <div className="notification-clear">
-            <CloseOutlined onClick={clearAllFunc} style={{ color: "#08816D" }} />
+          <div className="notification-clear" onClick={clearAllFunc}>
+            <CloseOutlined  style={{ color: "#08816D",marginRight:"5px" }} />
             <p>Clear All</p>
           </div>
 

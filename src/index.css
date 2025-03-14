@@ -6,6 +6,9 @@
   --primary1-color:#08816D1A;
   --table-head-color:#667085;
   --risk-text:#DC3131;
+  --chatbox-bg:#C4DCE0;
+  --unread-message:"#607F7A";
+  --senderMessage:#607F7A;
 }
 
 
@@ -444,12 +447,13 @@
  
 }
 .notifcation-message-icon{
-  width: 30px;
-  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 }
 .after-clear-notification-container{
   display: flex;
@@ -469,4 +473,196 @@
 .ant-popover .ant-popover-content {
   border-radius: 15px !important;
   overflow: hidden !important; /* Ensure rounded corners */
+}
+
+.drawer-chatbox{
+  background-color: var(--chatbox-bg) !important;
+  padding: 0px !important;
+}
+
+.drawer-chatbox .ant-drawer .ant-drawer-body {
+  padding: 0px !important;
+}
+
+.chat-people-type-container{
+  
+  display: flex;
+}
+.top-chat-people{
+  height: calc(100vh - 50px);
+  min-width: 450px;
+  display: flex;
+  padding: 10px;
+  /* align-items: center; */
+}
+.people-in-chats-container{
+  min-width: 300px;
+  background-color: white;
+  height: calc(100vh - 0px);
+}
+.search-box-chats{
+  padding: 20px;
+}
+.chats-categery-container{
+  display: flex;
+  gap: 20px;
+  padding: 0px 20px;
+  align-items: center;
+}
+.all-chats-category{
+  background-color: var(--secondary-color);
+  color: white;
+  padding:8px;
+  width: 60px;
+  text-align: center;
+  border-radius: 10px;
+
+}
+.unread-category{
+  background-color:#607F7A;
+  text-align: center;
+  padding: 8px;
+  width: 80px;
+  color: white;
+  border-radius: 10px;
+}
+
+.last-messages-peopleName-container{
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  /* justify-content: sta; */
+  gap: 30px;
+  align-items: center;
+  /* border-bottom: 1px solid black; */
+  /* padding: 10px; */
+  cursor: pointer;
+}
+
+.name-time-chatbox{
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  
+}
+.name-time-lastMsg-container{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+.user-profile-chatbox{
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-today-closeIcon{
+
+  display: flex;
+  text-align: center;
+  position: relative;
+  left: 50%;
+  min-height: 30px;
+  /* margin-bottom: 20px; */
+}
+
+
+.closed-icon{
+  position: absolute;
+  left:180px ;
+  font-size: 16px;
+  /* background: red; */
+  cursor: pointer;
+  z-index: 10; 
+}
+.chat-message {
+  
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  padding: 5px;
+  gap: 10px;
+  min-width: 400px;
+  max-width: 400px;
+  /* min-height: 100px; */
+  
+}
+
+.my-message {
+  justify-content: flex-end;
+}
+
+.other-message {
+  justify-content: flex-start;
+}
+
+.chats-people-box {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
+  max-width: 60%;
+}
+
+.my-message .chats-people-box {
+  background-color: #08816D; /* Change color for my messages */
+  color: white;
+}
+
+.other-message .chats-people-box {
+  background-color: var(--senderMessage);
+}
+
+.profile-pic-chats {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chats-sender-receiver {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* background-color: red; */
+  /* min-height: 340px; */
+  /* height: 350px; */
+  overflow-y: auto;
+  scrollbar-width: none;
+
+}
+
+.input-contains-with-chat-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  /* background-color: red; */
+  /* min-height: 300px; */
+  /* overflow-y: scroll; */
+}
+.input-send-message-container{
+  width: 300px;
+  /* position: absolute; */
+  position: relative;
+  top: 10%;
+  left: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+}
+.send-message{
+  padding: 10px;
 }
