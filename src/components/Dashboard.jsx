@@ -22,7 +22,8 @@ const Dashboard = () => {
   const navigate=useNavigate()
   
   return (
-    <Layout style={{ minHeight: "100vh",overflowY:"hidden" }}>
+    <div style={{backgroundColor:"red"}}>
+      <Layout style={{ minHeight: "100vh",overflowY:"hidden" }}>
       <Sider className="slider-screen" collapsible trigger={null} theme="light">
         {/* Branding */}
         <div className="company-name" style={{padding:"10px"}}>ComplIQ</div>
@@ -75,6 +76,7 @@ const Dashboard = () => {
         </Content>
       </Layout>
     </Layout>
+    </div>
 
   );
 };
