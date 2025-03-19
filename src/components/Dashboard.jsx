@@ -20,11 +20,12 @@ import HeaderComponent from "./commonComponents/HeaderComponent";
 
 const Dashboard = () => {
   const navigate=useNavigate()
+  
   return (
-    <Layout style={{ minHeight: "100vh",overflow:"hidden" }}>
+    <Layout style={{ minHeight: "100vh",overflowY:"hidden" }}>
       <Sider className="slider-screen" collapsible trigger={null} theme="light">
         {/* Branding */}
-        <div className="company-name">ComplIQ</div>
+        <div className="company-name" style={{padding:"10px"}}>ComplIQ</div>
 
         {/* Wrapper to allow bottom alignment */}
         <div className="menu-container">

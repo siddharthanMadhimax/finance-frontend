@@ -25,8 +25,8 @@
     
 
     const handleSearchContact = (value) => {
-      setSearchContact(value)
-
+      // setSearchContact(value)
+      console.log("search value",value)
       const filteredContacts = _exports.chats.filter((item) => item.userName.toLowerCase().includes(value.toLowerCase()))
       setPeopleChats(filteredContacts)
     }
@@ -101,11 +101,13 @@
             </div>
 
             <div className='input-send-message-container'>
-              <Input className='send-message' placeholder='type something'
+            {
+              selectedUser &&   <Input className='send-message' placeholder='type something'
               suffix={<SendOutlined style={{color:"#08816D",cursor:"pointer",fontSize:"18px"}}
               onClick={handleSendMessage}/>}
               value={messagetosent}
               onChange={(e)=>setMessagetoSend(e.target.value)}/>
+            }
             </div>
             </div>
 

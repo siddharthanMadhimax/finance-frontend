@@ -91,6 +91,71 @@ _exports.chats=[
     }
 ]
 
+
+_exports.userInfo=[
+    {
+        customerId:123456677,
+        name:"Rajan",
+        phone:"7683976898",
+        address:"8, holy cross street, maduvinkarai, chennai, guindy, 600032",
+        accountNumber:"986872678828",
+        accountEstablished:"lorem perum",
+        loanAmount:"1000000",
+        Balance:"30000",
+        BranchId:'16426',
+        transactionId:'tnx528962',
+        transactionAmount:400000,
+        paymentMethod:"cash",
+        paymentDate:"28/03/2025"
+    },
+    {
+        customerId:2234567,
+        name:"Rufas",
+        phone:"7683976898",
+        address:"8, holy cross street, maduvinkarai, chennai, guindy, 600032",
+        accountNumber:"986872678828",
+        accountEstablished:"lorem perum",
+        loanAmount:"1000000",
+        Balance:"30000",
+        BranchId:'16426',
+        transactionId:'tnx528962',
+        transactionAmount:400000,
+        paymentMethod:"cash",
+        paymentDate:"28/03/2025"
+    }
+]
+
+_exports.comments=[
+    {
+        name:"rufas",
+        commentId:123,
+        commentReply:[
+            {
+                name:"Rajan",
+                replyId:101,
+                replyMessage:"hello we talk to customer he will submit documents tommorow"
+            },
+         
+        ],
+        commentsMsg:"here the amount of transaction  is high so communicate with customer and verify that"
+    },
+    {
+        name:"rufas",
+        commentId:123,
+        commentReply:[
+            {
+                name:"Rajan",
+                replyId:101,
+                replyMessage:"okey sure"
+            },
+           
+          
+        ],
+        commentsMsg:"okey then submit the document tommorow"
+    },
+    
+]
+
 export{
     _exports
 }
