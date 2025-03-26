@@ -5,9 +5,10 @@ import Settings from "./Settings";
 import Help from "./Help";
 import HeaderComponent from "./commonComponents/HeaderComponent";
 import ChatPeople from "./ChatPeople";
+import ProfilePic from "../assets/profilepic.jpeg"
 
 export {
     Login,
     Dashboard,Settings,Help,RisksTable,
-    HeaderComponent,ChatPeople
+    HeaderComponent,ChatPeople,ProfilePic
 }

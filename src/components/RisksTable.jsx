@@ -1,295 +1,202 @@
+
+
+
 import React, { useState } from 'react'
 import { _exports } from '../constants'
-import { Button, Drawer, Popover, Table } from 'antd'
-import { EllipsisOutlined, RightCircleOutlined } from '@ant-design/icons'
+import { AlertFilled, AlertOutlined, AlertTwoTone, FieldTimeOutlined, FileDoneOutlined, HourglassOutlined, SafetyOutlined, UserDeleteOutlined, UsergroupDeleteOutlined, UserOutlined } from '@ant-design/icons'
+import ChartAlertCompare from './commonComponents/ChartAlertCompare'
+import BarChartMonthly from './BarChartMonthly'
+import { Button, Table } from 'antd'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { setSelectedCustomerId } from "../redux/riskSlice"
-import { useSelector } from 'react-redux'
-
+import { motion } from 'framer-motion'
 const RisksTable = () => {
-    const selectedCustomerId=useSelector((state)=>state.risk.selectedCustomerId)
-    const dispatch = useDispatch()
-    const [openDrawer, setOpenDrawer] = useState(false)
-    const [selectedAlert, setSelectedAlert] = useState()
-    const [openPopUp,setOpenPopup]=useState(false)
+    const navigate=useNavigate()
+    const [name, setName] = useState("selcia")
 
-    const navigate = useNavigate()
-    const handleViewData = (value, e) => {
-        // e.stop.propagation()
-        console.log("all data", value)
-        console.log("seleted", value.customerId)
-        dispatch(setSelectedCustomerId(value.customerId))
-        navigate("/risk-details")
 
-    }
-    // const handleRowClick=(record)=>{
-    //     setOpenDrawer(true)
-    //     setSelectedAlert(record)
-    // }\
-
-    const handleOpenDrawer=(value)=>{
-        setOpenDrawer(true)
-        setOpenPopup(false)
-        dispatch(setSelectedCustomerId(value.customerId))
     
-    }
-    const columns = [
-        {
-            title: "Date",
-            dataIndex: "date",
-            key: 'date'
-        },
-        {
-            title: "Rule id",
-            dataIndex: "ruleId",
-            key: 'ruleId',
-        },
-        {
-            title: "Risk lvl",
-            dataIndex: "riskLevel",
-            key: 'riskLevel'
-        },
-        {
-            title: "Cust.Name",
-            dataIndex: "customerName",
-            key: 'customerName'
-        },
-        {
-            title: "Trans.Id",
-            dataIndex: "transId",
-            key: 'trnasId'
-        },
-        {
-            title: "Trans.Amount",
-            dataIndex: "transAmount",
-            key: 'transAmount'
-        },
-        {
-            title: "Trans.Date",
-            dataIndex: "transDate",
-            key: 'transDate'
-        },
-        {
-            title: "Details",
-            key: 'details',
-            render: (text, record) => (
-                <Popover
-                arrow={false}
-                placement='bottom'
-                open={openPopUp==record.key}
-                trigger="click"
-                onOpenChange={(newChange)=>setOpenPopup(newChange)}
-                content={
-                    <div className='popover-choose-drawer-update'>
-                        <Button style={{backgroundColor:"#E7F3F1"}} onClick={()=>handleViewData(record)}>Update</Button>
-                        <Button  style={{backgroundColor:"#E7F3F1"}} onClick={()=>handleOpenDrawer(record)}>View More</Button>
-                    </div>
-                }
-                >
-                    <EllipsisOutlined style={{
-                        cursor: "pointer", color: "#08816D",
-                        fontSize: "25px"
-                    }} onClick={()=>setOpenPopup(true)} />
-                </Popover>
+const columns = [
+    {
+        title: "Date",
+        dataIndex: "date",
+        key: 'date'
+    },
+    {
+        title: "Rule id",
+        dataIndex: "ruleId",
+        key: 'ruleId',
+    },
+    {
+        title: "Risk lvl",
+        dataIndex: "riskLevel",
+        key: 'riskLevel'
+    },
+    {
+        title: "Cust.Name",
+        dataIndex: "customerName",
+        key: 'customerName'
+    },
+    {
+        title: "Status",
+        dataIndex: "status",
+        key: 'status'
+    },
+    {
+        title: "Trans.Id",
+        dataIndex: "transId",
+        key: 'transId'
+    },
+    {
+        title: "Trans.Amount",
+        dataIndex: "transAmount",
+        key: 'transAmount'
+    },
+    {
+        title: "Trans.Date",
+        dataIndex: "transDate",
+        key: 'transDate'
+    },
+   
+  ]
+  
+  
+  const dataSouce = [
+    {
+        customerId: 123456677,
+        key: '1',
+        date: '28/03/2025',
+        ruleId: 'AML-143',
+        riskLevel: 'High',
+  
+        customerName: 'Rajan',
+        transId: 'TXN001234',
+        transAmount: 300000000,
+        transDate: '28/03/2025',
+        phone: "7308991992",
+        Address: "8, holy cross street, maduvinkarai, chennai, guindy, 600032",
+        AccountNumber: "9875262782",
+        AccountEstablished: 'lorem ipsum',
+        LoanAmount: "1000000",
+        Balance: "300000",
+        status:"Not Assigned",
+        loanType:"vehicle Loan",
+        contractId:"vl2002",
+        loanTerm:"24 months",
+        emi_Amount:"$687",
+  
+  
+    },
+    {
+        customerId: 123456677,
+        key: '2',
+        date: '28/03/2025',
+        ruleId: 'AML-143',
+        riskLevel: 'High',
+  
+        customerName: 'Rajan',
+        transId: 'TXN001234',
+        transAmount: 300000000,
+        transDate: '28/03/2025',
+        phone: "7308991992",
+        Address: "8, holy cross street, maduvinkarai, chennai, guindy, 600032",
+        AccountNumber: "9875262782",
+        AccountEstablished: 'lorem ipsum',
+        LoanAmount: "1000000",
+        Balance: "300000",
+        status:"Not Assigned",
+        loanType:"vehicle Loan",
+        contractId:"vl2002",
+        loanTerm:"24 months",
+        emi_Amount:"$687",
+  
+  
+    }, 
+  ]
 
-            )
+
+    const IconPicker = (value) => {
+        switch (value) {
+            case "Total Alerts":
+                return <AlertOutlined className='total-alert-icon' />
+            case "Not Assigned":
+                return <UserDeleteOutlined />
+            case "Pending":
+                return <HourglassOutlined />
+            case "Not Suspicious":
+                return <SafetyOutlined />
+            case "STR Reported":
+                return <FieldTimeOutlined />
+            case "STR Completed":
+                return <FileDoneOutlined />
         }
-    ]
-
-    const dataSouce = [
-        {
-            customerId: 123456677,
-            key: '1',
-            date: '28/03/2025',
-            ruleId: 'AML-143',
-            riskLevel: 'High',
-
-            customerName: 'Rajan',
-            transId: 'TXN001234',
-            transAmount: 300000000,
-            transDate: '28/03/2025',
-            phone: "7308991992",
-            Address: "8, holy cross street, maduvinkarai, chennai, guindy, 600032",
-            AccountNumber: "9875262782",
-            AccountEstablished: 'lorem ipsum',
-            LoanAmount: "1000000",
-            Balance: "300000",
-            
-            loanType:"vehicle Loan",
-            contractId:"vl2002",
-            loanTerm:"24 months",
-            emi_Amount:"$687",
-
-
-        },
-        {
-            customerId: 2234567,
-            key: '2',
-            date: '20/03/2025',
-            ruleId: 'AML-141',
-            riskLevel: 'High',
-
-            customerName: 'Rufas',
-            transId: 'TXN001238',
-            transAmount: 200000000,
-            transDate: '19/03/2025',
-        },
-        {
-            key: '3',
-            date: '18/03/2025',
-            ruleId: 'AML-142',
-            riskLevel: 'High',
-            customerId: '98019190',
-            customerName: 'Muss',
-            transId: 'TXN001237',
-            transAmount: 100000000,
-            transDate: '16/03/2025',
-        },
-        {
-            key: '4',
-            date: '17/03/2025',
-            ruleId: 'AML-144',
-            riskLevel: 'Mid',
-            customerId: '98019190',
-            customerName: 'Jepsnal',
-            transId: 'TXN001236',
-            transAmount: 10000000,
-            transDate: '15/03/2025',
-        },
-        {
-            key: '5',
-            date: '15/03/2025',
-            ruleId: 'AML-143',
-            riskLevel: 'Mid',
-            customerId: '98019190',
-            customerName: 'Manu',
-            transId: 'TXN001234',
-            transAmount: 5000000,
-            transDate: '28/03/2025',
-
-        },
-    ]
+    }
+    const getClassName = (value) => {
+        return value.toLowerCase().replace(/\s+/g, "-");
+    }
     return (
-        <div style={{ overflowY: 'hidden' }}>
-            <Drawer
-            width={500}
-                open={openDrawer}
-                closable={false}
-                onClose={() => setOpenDrawer(false)}
-            >
-                <h1>Overview</h1>
-                <div>
-                    {
-                        dataSouce.filter((item)=>item.customerId==selectedCustomerId).map((item,index)=>(
-                            <div key={index}>
-                                <div className='drawer-risk-alert'>
-                                    <p>Name </p>
-                                    <p>{item.customerName}</p>
-                                </div>
+        <div>
+            <h3 className='welcome-msg'>Welcome back, {name}</h3>
 
-                                <div className='drawer-risk-alert'>
-                                    <p>Transaction Date </p>
-                                    <p>{item.date}</p>
-                                </div>
+            {/* cards of showing details of risk */}
 
-                                <div className='drawer-risk-alert'>
-                                    <p>Risk Level </p>
-                                    <p>{item.riskLevel}</p>
-                                </div>
-
-                                {/* <div className='drawer-risk-alert'>
-                                    <p>Loan Amount </p>
-                                    <p>{`$ ${item.LoanAmount}`}</p>
-                                </div> */}
-
-                                <div className='drawer-risk-alert'>
-                                    <p>Transaction Id </p>
-                                    <p>{item.transId}</p>
-                                </div>
-
-                                <div className='drawer-risk-alert'>
-                                    <p>Transaction Amount </p>
-                                    <p>{`$ ${item.transAmount}`}</p>
-                                </div>
-
-                                <div className='drawer-risk-alert'>
-                                    <p>Loan Amount </p>
-                                    <p>{`$ ${item.LoanAmount}`}</p>
-                                </div>
-
-                                <div className='drawer-risk-alert'>
-                                    <p>Loan Type </p>
-                                    <p>{`$ ${item.loanType}`}</p>
-                                </div>
-
-                                <div className='drawer-risk-alert'>
-                                    <p>Loan Term</p>
-                                    <p>{`$ ${item.loanTerm}`}</p>
-                                </div>
-
-                                <div className='drawer-risk-alert'>
-                                    <p>Emi Amount </p>
-                                    <p>{`$ ${item.emi_Amount}`}</p>
-                                </div>
-
-                                <div className='drawer-risk-alert'>
-                                    <p>Contract Id</p>
-                                    <p>{`$ ${item.contractId}`}</p>
-                                </div>
-
-
-                                {/* <div className='drawer-risk-alert'>
-                                    <p>Loa </p>
-                                    <p>{`$ ${item.LoanAmount}`}</p>
-                                </div> */}
-
+            <div className='risk-car-conatiner'>
+                {
+                    _exports.alertsData.map((item, index) => (
+                        <div key={index} className={`risk-card ${getClassName(item.alertTitle)}`}>
+                            <div>
+                                <p style={{ color: "#202224", fontSize: "16px" }}>{item.alertTitle}</p>
+                                <p style={{ color: "#202224", fontSize: "20px" }}>{item.alertCount}</p>
                             </div>
-                        ))
-                    }
-                </div>
-                <div>
-
-                </div>
-            </Drawer>
-            <div className='alerts-container' >
-                {_exports.alertsData.map((item, index) => (
-                    <div key={index} className='alerts-items-container'>
-                        <div className='alerts-items-count'>
-                            {item.alertCount}
+                            <div className={`icons-risk-cards ${getClassName(item.alertTitle)}-icon`}>
+                                {IconPicker(item.alertTitle)}
+                            </div>
                         </div>
-                        <div className='alerts-items-title'>
-                            {item.alertTitle}
-                        </div>
-                    </div>
-                ))}
+                    ))
+                }
             </div>
 
-            <div style={{ marginTop: "20px",overflowY:'auto'}}>
-                <h2 style={{ padding: '5px', marginLeft: "5px" }}
-                    className='heading-table-recent-alert'>Recent Alerts</h2>
-                <div className='table-container'>
-                    <Table
-                        pagination={false}
-                        bordered={false}
-                        columns={columns}
-                        dataSource={dataSouce}
-                        // onRow={(record)=>(
-                        //     {
-                        //         onClick:()=>handleRowClick(record)
-                        //     }
-                        // )}
-                        // scroll={{ x: "max-content", y: 400 }} 
-                        className='custom-table-risk-alerts'
-                    >
+            <div>
 
-                    </Table>
+                <div className='bar-charts-graph-container'>
+                    <motion.div
+                    initial={{opacity:0,x:-10}}
+                    animate={{opacity:1,x:0}}
+                    transition={{duration:0.5}}
+                     style={{ flex: 1, height: "250px" }}>
+                        <ChartAlertCompare />
+                    </motion.div>
+
+                    <div style={{ flex: 1, height: "250px" }}>
+                    <BarChartMonthly/>
+                    </div>
                 </div>
+
+                <div >
+                    <h3 style={{marginBottom:"20px"}} className='heading newAlertBlink'>New Alert</h3>
+                   <div>
+                   <Table
+                    className='table-container table-container-colors'
+                    scroll={{ x: "max-content" }} 
+                   
+                    pagination={false}
+                    columns={columns}
+                    dataSource={dataSouce}/>
+                   </div>
+                   <motion.div initial={{opacity:0,y:30}}
+                   whileInView={{opacity:1,y:0}} transition={{duration:0.5}}
+                    style={{textAlign:"center",marginTop:"10px"}}>
+                    <Button className='readMoreBtn' onClick={()=>navigate("/dashboard/alert-table")}>More Alerts</Button>
+                   </motion.div>
+                </div>
+
             </div>
         </div>
     )
 }
 
 export default RisksTable
+
+
+
 
 

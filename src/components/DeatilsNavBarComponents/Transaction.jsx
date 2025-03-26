@@ -65,7 +65,43 @@ const Transaction = () => {
 
       customerId: 123, ruleId: "AML-123", alertLevel: "High", 
       location: "Chennai", transactionAmount: 9000000, 
-      transactionDate: "2025-04-29", transactionDescription: "Deposit" },
+      transactionDate: "2025-04-29", transactionDescription: "Deposit" }, { key: 123, transactionId: "TNX001982", customerName: "Raajan",
+
+        customerId: 123, ruleId: "AML-123", alertLevel: "High", 
+        location: "Chennai", transactionAmount: 9000000, 
+        transactionDate: "2025-04-29", transactionDescription: "Deposit" }, { key: 123, transactionId: "TNX001982", customerName: "Raajan",
+
+          customerId: 123, ruleId: "AML-123", alertLevel: "High", 
+          location: "Chennai", transactionAmount: 9000000, 
+          transactionDate: "2025-04-29", transactionDescription: "Deposit" }, { key: 123, transactionId: "TNX001982", customerName: "Raajan",
+
+            customerId: 123, ruleId: "AML-123", alertLevel: "High", 
+            location: "Chennai", transactionAmount: 9000000, 
+            transactionDate: "2025-04-29", transactionDescription: "Deposit" }, { key: 123, transactionId: "TNX001982", customerName: "Raajan",
+
+              customerId: 123, ruleId: "AML-123", alertLevel: "High", 
+              location: "Chennai", transactionAmount: 9000000, 
+              transactionDate: "2025-04-29", transactionDescription: "Deposit" }, { key: 123, transactionId: "TNX001982", customerName: "Raajan",
+
+                customerId: 123, ruleId: "AML-123", alertLevel: "High", 
+                location: "Chennai", transactionAmount: 9000000, 
+                transactionDate: "2025-04-29", transactionDescription: "Deposit" }, { key: 123, transactionId: "TNX001982", customerName: "Raajan",
+
+                  customerId: 123, ruleId: "AML-123", alertLevel: "High", 
+                  location: "Chennai", transactionAmount: 9000000, 
+                  transactionDate: "2025-04-29", transactionDescription: "Deposit" }, { key: 123, transactionId: "TNX001982", customerName: "Raajan",
+
+                    customerId: 123, ruleId: "AML-123", alertLevel: "High", 
+                    location: "Chennai", transactionAmount: 9000000, 
+                    transactionDate: "2025-04-29", transactionDescription: "Deposit" }, { key: 123, transactionId: "TNX001982", customerName: "Raajan",
+
+                      customerId: 123, ruleId: "AML-123", alertLevel: "High", 
+                      location: "Chennai", transactionAmount: 9000000, 
+                      transactionDate: "2025-04-29", transactionDescription: "Deposit" }, { key: 123, transactionId: "TNX001982", customerName: "Raajan",
+
+                        customerId: 123, ruleId: "AML-123", alertLevel: "High", 
+                        location: "Chennai", transactionAmount: 9000000, 
+                        transactionDate: "2025-04-29", transactionDescription: "Deposit" },
     { key: 456, transactionId: "TNX001983", customerName: "Arjun", 
 
       customerId: 456, ruleId: "AML-456", alertLevel: "Medium", 
@@ -155,7 +191,7 @@ const Transaction = () => {
        className='custom-transaction-table'>
        <Table
        pagination={false}
-      //  scroll={{y:200}}
+       scroll={{x:"max-content"}}
         dataSource={filteredData()}
         columns={columns}
         />

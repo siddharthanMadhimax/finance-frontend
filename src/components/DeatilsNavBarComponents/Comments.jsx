@@ -9,8 +9,29 @@ const Comments = () => {
 
   const [commentValue,setCommentvalue]=useState("")
   const [allComments,setAllComments]=useState(_exports.comments)
+  const [commentWrite,setCommentWrite]=useState(true)
+  const [commentLength,setCommentLength]=useState(500)
+  
+  const handleCommentWordsCal=(value)=>{
+    
+    
+    setCommentLength(500-value.length)
+    const totalLength=500;
+    if(value.length >=totalLength){
+      // value=value.slice(0,totalLength)
+      setCommentWrite(false)
+      return
+    }
+    setCommentvalue(value)
+    setCommentWrite(true)
+
+  }
 
   const handleCommentSubmit=()=>{
+    if(!commentWrite){
+      message.error("")
+      return
+    }
     console.log("new comment",commentValue)
     setAllComments((prev)=>{
       const newComment={
@@ -26,18 +47,20 @@ const Comments = () => {
 
     })
     setCommentvalue("")
+    
     message.success("success")
   }
   return (
     <div>
       {/* Comment Add Section */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center",padding:"10px" }}>
         <div className='commet-add-section-container'>
 
           <div>
             <TextArea
+            // readOnly={commentWrite}
             value={commentValue}
-            onChange={(e)=>setCommentvalue(e.target.value)}
+            onChange={(e)=>handleCommentWordsCal(e.target.value)}
               autoSize={{ minRows:2, maxRows: 8 }}
               placeholder='Add comment...' className='custom-text-area' />
           </div>
@@ -48,9 +71,15 @@ const Comments = () => {
               <Button><ItalicOutlined /></Button>
               <Button><UnderlineOutlined /></Button>
             </div>
-            <div>
-              <button className='comment-submit'
+            <div className='number-of-comment-container'>
+            <div className='comment-total-word'>
+                {commentLength}/500
+              </div>  
+              <div>
+              <button  className={commentWrite ? `comment-submit`:'disable-comment'}
               onClick={handleCommentSubmit}>Submit</button>
+              </div>
+              
             </div>
           </div>
 
@@ -58,9 +87,10 @@ const Comments = () => {
       </div>
 
       {/* Comments Section */}
-      <div style={{ marginTop: "20px", marginLeft: "60px" }}>
+      <div style={{ marginTop: "20px", marginLeft: "60px", }}>
         <h2>Comments</h2>
         <List
+        style={{maxWidth:"800px"  ,overflowX:"hidden",wordWrap:"break-word"}}
           dataSource={allComments}
           renderItem={(commentMsg, index) => (
             <div className='comment-section'>

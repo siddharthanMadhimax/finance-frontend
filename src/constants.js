@@ -1,14 +1,16 @@
 
 
+
 const _exports={}
 
 _exports.alertsData=[
     {alertCount:720,alertTitle:"Total Alerts"},
     {alertCount:650,alertTitle:"Not Assigned"},
     {alertCount:420,alertTitle:"Pending"},
-    {alertCount:160,alertTitle:"STR Reported"},
-    {alertCount:"0.5%",alertTitle:"STR Completed"},
-    {alertCount:160,alertTitle:"Resolved"}
+    {alertCount:160,alertTitle:"Not Suspicious"},
+    {alertCount:120,alertTitle:"STR Reported"},
+    {alertCount:"0.5%",alertTitle:"STR Completed"}
+   
 ]
 
 _exports.notificationAlert=[
@@ -156,6 +158,266 @@ _exports.comments=[
     
 ]
 
+
+_exports.transactions = [
+  {
+    transId: "TXN001234",
+    custId: "9801919",
+    custName: "Rajan",
+    branchId: "132476",
+    state: "Tamil Nadu",
+    city: "Chennai",
+    ruleId: "AML-143",
+    transAmt: "$1000000",
+    transDate: "28/03/2025",
+    homeBranch: "Chennai",
+    destBranch: "Bangalore",
+    customerId:123456677
+  },
+  {
+    transId: "TXN001234",
+    custId: "9801919",
+    custName: "Rajan",
+    branchId: "132476",
+    state: "Tamil Nadu",
+    city: "Chennai",
+    ruleId: "AML-143",
+    transAmt: "$1000000",
+    transDate: "28/03/2025",
+    homeBranch: "Chennai",
+    destBranch: "Bangalore",
+    customerId:123456677,
+  },
+  {
+    transId: "TXN001234",
+    custId: "9801919",
+    custName: "Rajan",
+    branchId: "132476",
+    state: "Tamil Nadu",
+    city: "Chennai",
+    ruleId: "AML-143",
+    transAmt: "$1000000",
+    transDate: "28/03/2025",
+    homeBranch: "Chennai",
+    destBranch: "Bangalore",
+    customerId:123456677
+  },
+  {
+    transId: "TXN001234",
+    custId: "9801919",
+    custName: "Rajan",
+    branchId: "132476",
+    state: "Tamil Nadu",
+    city: "Chennai",
+    ruleId: "AML-143",
+    transAmt: "$1000000",
+    transDate: "28/03/2025",
+    homeBranch: "Chennai",
+    destBranch: "Bangalore",
+    customerId:78920800
+  },
+  {
+    transId: "TXN001234",
+    custId: "9801919",
+    custName: "Rajan",
+    branchId: "132476",
+    state: "Tamil Nadu",
+    city: "Chennai",
+    ruleId: "AML-143",
+    transAmt: "$1000000",
+    transDate: "28/03/2025",
+    homeBranch: "Chennai",
+    destBranch: "Bangalore",
+    customerId:2234567,
+  },
+  {
+    transId: "TXN001234",
+    custId: "9801919",
+    custName: "Rajan",
+    branchId: "132476",
+    state: "Tamil Nadu",
+    city: "Chennai",
+    ruleId: "AML-143",
+    transAmt: "$1000000",
+    transDate: "28/03/2025",
+    homeBranch: "Chennai",
+    destBranch: "Bangalore",
+    customerId:12980801,
+  },
+  {
+    transId: "TXN001234",
+    custId: "9801919",
+    custName: "Rajan",
+    branchId: "132476",
+    state: "Tamil Nadu",
+    city: "Chennai",
+    ruleId: "AML-143",
+    transAmt: "$1000000",
+    transDate: "28/03/2025",
+    homeBranch: "Chennai",
+    destBranch: "Bangalore",
+    customerId:2234567,
+  }
+];
+
+_exports.dataSource= [
+    {
+      key: "1",
+      customerId: 123456677,
+      date: "28/03/2025",
+      ruleId: "AML-143",
+      riskLevel: "high",
+      customerName: "Rajan",
+      transId: "TXN001234",
+      transAmount: 300000000,
+      transDate: "28/03/2025",
+      status: "assigned",
+     
+    },
+    {
+      key: "2",
+      customerId: 2234567,
+      date: "20/03/2025",
+      ruleId: "AML-141",
+      riskLevel: "medium",
+      customerName: "Rufas",
+      transId: "TXN001238",
+      transAmount: 200000000,
+      transDate: "19/03/2025",
+      status: "notAssigned"
+
+    },
+   
+  ];
+
+  _exports.customerInfo=[
+    {customerId:123456677,phone:"7356729920",address:"8,holy street, Maduvinkarai, Chennai, 600032",
+      accountNumber:"89879808778",accountType:"Personal",accountStatus:"Active",customerName:"Rajan",
+      gender:"male",dateofBirth:"20/11/2002",location:"chennai",region:"sothern",accountType:"bussiness",
+      contracts:[
+        {
+          contractId: "PL3002",
+          customerName: "Raajan",
+          loanAmount: "$10,000",
+          loanTerm: "2 years",
+          status: "Active",
+          emiAmount: "$420",
+          noOfInstallments: 24,
+          loanType: "Personal Loan"
+        },
+        {
+          contractId: "HL4002",
+          customerName: "Raajan",
+          loanAmount: "$200,000",
+          loanTerm: "20 years",
+          status: "Approved",
+          emiAmount: "$1,200",
+          noOfInstallments: 240,
+          loanType: "Home Loan"
+        },
+        {
+          contractId: "VL5001",
+          customerName: "Raajan",
+          loanAmount: "$50,000",
+          loanTerm: "5 years",
+          status: "Pending",
+          emiAmount: "$900",
+          noOfInstallments: 60,
+          loanType: "Vehicle Loan"
+        }
+      ],
+      alertId:"768758500",
+      transactionId:"768758599",
+      riskLevel:"High",
+      alerStatus:"Not assigned",
+      transAmount:"$1000000",
+      branchId:"SB500012",
+      loanAmount:"$1000000",
+      balance:"$300000",
+      paymentMethod:"Cash",
+      paymentDate:"12/02/2025"
+      
+    },
+    {
+      customerId: 2234567,
+      phone: "8123456789",
+      address: "28, Lakeview Street, Tambaram, Chennai, 600045",
+      accountNumber: "23456789012",
+      accountType: "Business",
+      accountStatus: "Inactive",
+      customerName: "Rufas",
+      gender:"male",dateofBirth:"20/11/2002",
+      location:"chennai",region:"sothern",accountType:"bussiness",
+      contracts:[
+        {
+          contractId: "PL3002",
+          customerName: "Rufas",
+          loanAmount: "$10,000",
+          loanTerm: "2 years",
+          status: "Active",
+          emiAmount: "$420",
+          noOfInstallments: 24,
+          loanType: "Personal Loan"
+        },
+        {
+          contractId: "HL4002",
+          customerName: "Rufas",
+          loanAmount: "$200,000",
+          loanTerm: "20 years",
+          status: "Approved",
+          emiAmount: "$1,200",
+          noOfInstallments: 240,
+          loanType: "Home Loan"
+        },
+        {
+          contractId: "VL5001",
+          customerName: "Rufas",
+          loanAmount: "$50,000",
+          loanTerm: "5 years",
+          status: "Pending",
+          emiAmount: "$900",
+          noOfInstallments: 60,
+          loanType: "Vehicle Loan",
+          paymentMethod:"Cash",
+          paymentDate:"12/05/2025"
+        }
+      ],
+      alertId:"768758599",
+      transactionId:"768758599",
+      riskLevel:"High",
+      alerStatus:"Not assigned",
+      transAmount:"$1000000",
+      branchId:"SB500012",
+      loanAmount:"$1000000",
+      balance:"$300000",
+      paymentMethod:"Cash",
+       paymentDate:"12/02/2025"
+      
+    },
+  
+  ]
+
+
+  _exports.usersData=[
+    {
+      name:"Alen",
+      position:"supervisor",
+      email:"alen@gmail.com",
+      phone:"838729088",
+      gender:"Male",
+      
+    },
+
+  ]
+_exports.employeeData={
+  firstName:"siddhu",
+  lastName:"M",
+  phoneNumber:"638808720",
+  yourEmail:"siddhu@gmail.com",
+  position:"manager",
+  dateOfBirth:"20/1/2002"
+}
+
 export{
-    _exports
+ _exports   
 }

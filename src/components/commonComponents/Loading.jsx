@@ -6,5 +6,5 @@ const Loading = () => {
     );
   };
   
-  export default Loading; // ✅ Add this line
+  export default Loading; 
   

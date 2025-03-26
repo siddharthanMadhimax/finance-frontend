@@ -1,7 +1,7 @@
 import React from 'react'
 
 const DetailNavBar = ({setActiveTab,activeTab}) => {
-    const Tabs=["Customer Info","Transaction","Comments","Upload Documents"]
+    const Tabs=["Customer Info","Contract","Alert","Transaction","Update"]
   return (
     <div>
         <div className='details-navbar-container'>
