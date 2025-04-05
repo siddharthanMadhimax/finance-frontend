@@ -55,6 +55,7 @@ const UserCreation = () => {
   const [email,setEmail]=useState("")
   const [position,setPosition]=useState("")
   const [pass,setPass]=useState("")
+  const [showUpdateBtn,setShowUpdateBtn]=useState(false)
 
   const columns = [
     {
@@ -149,6 +150,24 @@ const handleOpendrawer=(id)=>{
   
 }
 
+const handleUpdateValues=(setter,field,value)=>{
+  console.log("kjbhbjhb")
+  setter(value)
+
+  const updatedValues={}
+  if(inidividaulUserId){
+    if(firstName!==inidividaulUserId.firstName) updatedValues.firstName=firstName
+    if(lastName!==inidividaulUserId.lastName) updatedValues.lastName=lastName
+    if(position!==inidividaulUserId.position) updatedValues.position=position
+    if(email!==inidividaulUserId.email) updatedValues.email=email
+
+  }
+  console.log("up",updatedValues)
+  if(Object.keys(updatedValues).length>0){
+    setShowUpdateBtn(true)
+  }
+}
+
   return (
     <div>
       <Modal open={removeModal}
@@ -173,16 +192,16 @@ const handleOpendrawer=(id)=>{
            <div className="selected-user-data-form">
            <div className="flex-div-input-user-data">
               <label>First Name</label>
-              <Input className="form-user-add" value={firstName} onChange={(e)=>setFirstName(e.target.value)}/>
+              <Input className="form-user-add" value={firstName} onChange={(e)=>handleUpdateValues(setFirstName,"firstName",e.target.value)}/>
            </div>
             <div className="flex-div-input-user-data">
               <label>Last Name</label>
-              <Input className="form-user-add" value={lastName} onChange={(e)=>setLastName(e.target.value)}/>
+              <Input className="form-user-add" value={lastName} onChange={(e)=>handleUpdateValues(setLastName,"lastName",e.target.value)}/>
            </div>
 
             <div className="flex-div-input-user-data">
               <label>Email</label>
-              <Input className="form-user-add" value={email} onChange={(e)=>setEmail(e.target.value)}/>
+              <Input className="form-user-add" value={email} onChange={(e)=>handleUpdateValues(setEmail,"email",e.target.value)}/>
            </div>
 
             <div className="flex-div-input-user-data"
@@ -193,12 +212,18 @@ const handleOpendrawer=(id)=>{
                 dropdownStyle={{ padding: "20px" }}
                 placeholder="position"
                 value={position}
-                onChange={(value)=>setPosition(value)}
+                onChange={(value)=>handleUpdateValues(setPosition,"position",value)}
                options={[
                 {label:"Manager",value:'Manager'},
                 {label:"Supervisor",value:"Supervisor"},
                 {label:"Representative",value:"Representative"}
                ]}/>
+           </div>
+
+           <div>
+           {
+            showUpdateBtn ?  <Button className="save-btn-general">Update</Button>:""
+           }
            </div>
            </div>
         </Drawer>
